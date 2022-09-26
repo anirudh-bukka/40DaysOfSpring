@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+    <bean id = "myFortune" class = "com.practiceapp.spring.LuckyDayFS" >
+    </bean>
+    
+    <!--  <bean id = "myBballCoach" 
+    	class = "com.practiceapp.spring.BaseballCoach"> 
+    	
+    	<constructor-arg ref = "myFortune" />
+    		
+    </bean> -->
+    
+    <bean id = "myCricCoach" class = "com.practiceapp.spring.CricketCoach">
+    	<property name = "fortuneService" ref = "myFortune" />
+    	<property name = "emailAddress" value = "${srhcoach.email}" />
+    	<property name = "team" value = "${srh.team}" />
+    </bean>
+    
+    <!-- <bean id="myRowCoach" class="com.practiceapp.spring.RowingCoach">
+    	<constructor-arg ref = "myFortune" />
+    </bean> -->
+    
+     <!-- <bean id = "myFortune" class = "com.githubrepo.springdemo.HappyFortuneService">
+    </bean>
+    
+    	Inject the dependency
+     <bean id = "myCoach" class = "com.githubrepo.springdemo.TrackCoach">
+    		Setup constructor injection
+    		<constructor-arg ref = "myFortune"/>
+    </bean> -->
+    
+</beans>
+
+
+
+
+
